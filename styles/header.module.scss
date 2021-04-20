@@ -1,0 +1,21 @@
+.header {
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  // right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px;
+  // padding: 0 110px;
+  &__link {
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 0.56px;
+    color: #3D3D3D;
+    text-transform: uppercase;
+    opacity: 1;
+    padding: 0 35px;
+  }
+}
