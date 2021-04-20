@@ -38,5 +38,14 @@
   }
   &__calendar {
     flex-basis: 36%;
+    text-align: center;
+    font-size: 19px;
+    line-height: 23px;
+    font-weight: 500;
+    color: #DFDFDF;
+    text-transform: uppercase;
+    opacity: 1;
+    padding-top: 190px;
+    background: #272829 0% 0% no-repeat padding-box;
   }
 }

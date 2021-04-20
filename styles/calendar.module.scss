@@ -1,0 +1,25 @@
+.calendar {
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  &__button {
+    border: none;
+    background-color: transparent;
+    color: #DFDFDF;
+    opacity: 0.67;
+    cursor: pointer;
+  }
+  &__table {
+    width: 100%;
+    padding-top: 20px;
+    border-top: 1px solid #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+    opacity: 0.43;
+
+    & tfoot {
+      border-top: 1px solid #FFFFFF;
+    }
+  }
+}

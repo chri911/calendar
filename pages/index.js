@@ -1,5 +1,9 @@
 import styles from '../styles/main.module.scss'
 import { MainLayout } from '../components/MainLayout'
+// import moment from 'moment';
+// import { useState } from 'react';
+import { Calendar } from '../components/Calendar';
+
 
 export default function Home() {
   return (
@@ -13,7 +17,9 @@ export default function Home() {
             We encourage you to book your appointment online. This will save you time.
           </h2>
         </div>
-        <div className={styles.main__calendar}></div>
+        <div className={styles.main__calendar}>
+          <Calendar/>
+        </div>
       </main>
     </MainLayout>
   )
