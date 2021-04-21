@@ -1,3 +1,9 @@
+@mixin onMobile {
+  @media (max-height: 400px) {
+    @content;
+  }
+}
+
 @mixin onTablet {
   @media (min-width: 700px) {
     @content;
@@ -69,6 +75,7 @@
       right: 0
     }
   }
+  
   @include onTablet {
     &__day {
       font-size: 17px;
@@ -77,5 +84,16 @@
 }
   @include onNotebook {
       top: 25%;
+  }
+  @include onMobile{
+    font-size: 15px;
+    &__header {
+      max-height: 30px;
+    }
+
+    &__day {
+      font-size: 17px;
+      padding: 10px 15px;
+    }
   }
 }

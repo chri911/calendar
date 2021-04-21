@@ -1,3 +1,9 @@
+@mixin onMobile {
+  @media (max-height: 400px) {
+    @content;
+  }
+}
+
 @mixin onTablet {
   @media (min-width: 700px) {
     @content;
@@ -73,6 +79,14 @@
   @include onNotebook {
     &__content {
       top: 25%;
+    }
+  }
+
+  @include onMobile{
+    height: 87vh;
+    &__title {
+      font-size: 43px;
+      line-height: 52px;
     }
   }
 }
