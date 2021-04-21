@@ -30,6 +30,7 @@ export const MainLayout = ({children}) => {
       <main>
         {children}
       </main>
+
     </>
   )
 }
