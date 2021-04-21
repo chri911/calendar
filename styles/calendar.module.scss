@@ -17,9 +17,44 @@
     border-top: 1px solid #FFFFFF;
     border-bottom: 1px solid #FFFFFF;
     opacity: 0.43;
+    border-collapse: collapse;
+    cursor: pointer;
+  }
 
-    & tfoot {
-      border-top: 1px solid #FFFFFF;
+  &__tfoot {
+    border-top: 1px solid #FFFFFF;
+    padding-top: 20px;
+    position: relative;
+    & td {
+      padding: 16px 12px;
+    }
+  }
+
+  &__day {
+    font-size: 17px;
+    line-height: 20px;
+    padding: 22px 20px;
+  }
+
+  &__today {
+    background-color: #FDD000;
+    box-shadow: 0px 0px 25px #0000000D;
+    color: #3D3D3D;
+  }
+
+  &__anotherMonth {
+    opacity: 0.24;
+  }
+
+  &__selectedDate {
+    color: #FDD000;
+    position: relative;
+    &::after {
+      content: '.';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0
     }
   }
 }

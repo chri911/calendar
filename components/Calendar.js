@@ -1,6 +1,10 @@
+import React from 'react';
 import moment from 'moment';
 import styles from '../styles/calendar.module.scss';
 import { useState } from 'react';
+import classNames from 'classnames';
+import { useDispatch } from 'react-redux';
+import { actions } from './store';
 
 function createCalendar(year, month) {
   const daysInWeek = 7;
@@ -21,27 +25,24 @@ function createCalendar(year, month) {
     }
   }
 
+  console.log(moment(result[1][1]).format('YYYY-MM-DD'));
+
   return result;
 }
 
 export const Calendar = () => {
   const weekDays = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-  
-  const [today, setToday] = useState(moment().format('YYYY-MM-DD'));
-  // const [date, setDate] = useState(moment().format('MMMM YYYY'));
+
   const [date, setDate] = useState(new Date());
   const [selectedDay, setSelectedDay] = useState('');
   const monthData = createCalendar(date.getFullYear(), date.getMonth());
+  const dispatch = useDispatch();
 
-
-  let d = moment("20210401", "YYYYMMDD").format('dddd');  //Thursday
-  // moment().format('ll'); 
-  const startOfMonth = moment().startOf('month').format('YYYY-MM-DD');
-  // console.log(startOfMonth); //4
-  // console.log(today); //4
-  // console.log(new Date(startOfMonth).getDay()); //4
 
   const handleClick = (day) => {
+    console.log(day);
+    
+    dispatch(actions.changeDate(day))
     setSelectedDay(day)
   };
 
@@ -67,7 +68,7 @@ export const Calendar = () => {
         </button>
       </div>  
       <table className={styles.calendar__table}>
-        <tfoot>
+        <tfoot className={styles.calendar__tfoot}>
           <tr>
             {weekDays.map((day, index) =>
               <td key={day + index}>
@@ -80,7 +81,15 @@ export const Calendar = () => {
           {monthData.map((week,index) => 
             <tr key={index}>
               {week.map((weekDay, index) =>
-                <td key={index} onClick={() => handleClick(weekDay)}>
+                <td
+                  key={index}
+                  onClick={() => handleClick(weekDay)}
+                  className={classNames(styles.calendar__day, {
+                    [styles.calendar__anotherMonth]: weekDay.getMonth() !== date.getMonth(),
+                    [styles.calendar__selectedDate]: moment(weekDay).format('YYYY-MM-DD') === moment(selectedDay).format('YYYY-MM-DD'),
+                    [styles.calendar__today]: moment(weekDay).format('YYYY-MM-DD') === moment().format('YYYY-MM-DD')
+                  })}
+                >
                   {weekDay.getDate()}
                 </td>
               )}
