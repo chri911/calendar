@@ -30,14 +30,6 @@ export const MainLayout = ({children}) => {
       <main>
         {children}
       </main>
-      {/* <style jsx>{`
-        header {
-          position: fixed;
-          top: 0;
-          display: flex;
-          justify-content: space-between;
-        }
-      `}</style> */}
     </>
   )
 }

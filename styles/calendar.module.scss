@@ -1,4 +1,21 @@
+@mixin onTablet {
+  @media (min-width: 700px) {
+    @content;
+  }
+}
+@mixin onNotebook {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
 .calendar {
+  text-align: center;
+  font-size: 19px;
+  font-weight: 500;
+  color: #DFDFDF;
+  text-transform: uppercase;
+  transform: translate(0 50%);
+
   &__header {
     display: flex;
     align-items: center;
@@ -13,17 +30,14 @@
   }
   &__table {
     width: 100%;
-    padding-top: 20px;
     border-top: 1px solid #FFFFFF;
     border-bottom: 1px solid #FFFFFF;
-    opacity: 0.43;
     border-collapse: collapse;
     cursor: pointer;
   }
 
   &__tfoot {
     border-top: 1px solid #FFFFFF;
-    padding-top: 20px;
     position: relative;
     & td {
       padding: 16px 12px;
@@ -31,9 +45,8 @@
   }
 
   &__day {
-    font-size: 17px;
-    line-height: 20px;
-    padding: 22px 20px;
+    font-size: 13px;
+    padding: 15px 15px;
   }
 
   &__today {
@@ -56,5 +69,14 @@
       left: 0;
       right: 0
     }
+  }
+  @include onTablet {
+    &__day {
+      font-size: 17px;
+      padding: 17px 20px;
+    }
+}
+  @include onNotebook {
+      top: 25%;
   }
 }

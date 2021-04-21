@@ -1,9 +1,15 @@
+@mixin onTablet {
+  @media (min-width: 700px) {
+    @content;
+  }
+}
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 10vh;
-  // padding: 0 110px;
+
   &__link {
     font-size: 28px;
     font-weight: 500;
@@ -13,5 +19,16 @@
     text-transform: uppercase;
     opacity: 1;
     padding: 0 35px;
+    font-size: 15px;
+    line-height: 20px;
+    padding: 0 10px;
+  }
+
+  @include onTablet {
+    &__link {
+      font-size: 28px;
+      line-height: 30px;
+      padding: 0 35px;
+    }
   }
 }

@@ -1,27 +1,21 @@
 import {createStore} from 'redux';
-import {createWrapper, HYDRATE} from 'next-redux-wrapper';
+import {createWrapper} from 'next-redux-wrapper';
 
-const CHANGEDATE = 'CHANGEDATE';
+const CHANGE_DATE = 'CHANGE_DATE';
 
 export const actions = {
-  changeDate: date => ({type: CHANGEDATE, date})
+  changeDate: date => ({type: CHANGE_DATE, date})
 };
 
-const reducer = (state = {date: new Date()}, action) => {
+const reducer = (state = {}, action) => {
     switch (action.type) {
-        case HYDRATE:
-            return {...state, ...action.payload};
-        case CHANGEDATE:
-            console.log(123, action.payload, action.date);
-            // return {...state, date: action.payload};
-            return {...state, date: action.Date};
+        case CHANGE_DATE:
+            return {...state, date: action.date};
         default:
             return state;
     }
 };
-// export const makeStore = (initialState) => {
-//     return createStore(reducer, initialState);
-// };
-const makeStore = context => createStore(reducer);
+
+const makeStore = (context) => createStore(reducer);
 
 export const wrapper = createWrapper(makeStore, {debug: true});
